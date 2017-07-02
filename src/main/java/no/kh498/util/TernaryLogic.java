@@ -6,7 +6,7 @@ package no.kh498.util;
  * @author karl henrik
  */
 @SuppressWarnings("unused")
-public enum Ternary {
+public enum TernaryLogic {
     TRUE,
     UNKNOWN,
     FALSE;
@@ -41,11 +41,11 @@ public enum Ternary {
      *
      * @return {@code isKnown() ? (this == TRUE ? FALSE : TRUE) : UNKNOWN}.
      */
-    public Ternary not() {
+    public TernaryLogic not() {
         return isKnown() ? (this == TRUE ? FALSE : TRUE) : UNKNOWN;
     }
 
-    public Ternary and(final Ternary other) {
+    public TernaryLogic and(final TernaryLogic other) {
         if (this == FALSE) {
             return FALSE;
         }
@@ -55,7 +55,7 @@ public enum Ternary {
         return UNKNOWN;
     }
 
-    public Ternary or(final Ternary other) {
+    public TernaryLogic or(final TernaryLogic other) {
         if (this == TRUE || other == TRUE) {
             return TRUE;
         }
@@ -73,7 +73,7 @@ public enum Ternary {
      *
      * @return {@code (i == 1) ? TRUE : ((i == 0) ? FALSE : UNKNOWN)}
      */
-    public static Ternary get(final int i) {
+    public static TernaryLogic get(final int i) {
         return (i == 1) ? TRUE : ((i == 0) ? FALSE : UNKNOWN);
     }
 
@@ -84,7 +84,7 @@ public enum Ternary {
      *
      * @return {@code (i == 1) ? TRUE : ((i == 0) ? FALSE : UNKNOWN)}
      */
-    public static Ternary get(final float f) {
+    public static TernaryLogic get(final float f) {
         return (f == 1f) ? TRUE : ((f == 0f) ? FALSE : UNKNOWN);
     }
 
@@ -95,7 +95,7 @@ public enum Ternary {
      *
      * @return {@code (i == 1) ? TRUE : ((i == 0) ? FALSE : UNKNOWN)}
      */
-    public static Ternary get(final double d) {
+    public static TernaryLogic get(final double d) {
         return (d == 1d) ? TRUE : ((d == 0d) ? FALSE : UNKNOWN);
     }
 
@@ -106,7 +106,7 @@ public enum Ternary {
      *
      * @return {@code b ? TRUE : FALSE}
      */
-    public static Ternary get(final boolean b) {
+    public static TernaryLogic get(final boolean b) {
         return b ? TRUE : FALSE;
     }
 
@@ -117,7 +117,7 @@ public enum Ternary {
      *
      * @return {@code "TRUE".equalsIgnoreCase(s) ? TRUE : ("FALSE".equalsIgnoreCase(s) ? FALSE : UNKNOWN)}
      */
-    public static Ternary get(final String s) {
+    public static TernaryLogic get(final String s) {
         return "TRUE".equalsIgnoreCase(s) ? TRUE : ("FALSE".equalsIgnoreCase(s) ? FALSE : UNKNOWN);
     }
 }
