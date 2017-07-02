@@ -32,6 +32,40 @@ public enum Ternary {
         return this != UNKNOWN;
     }
 
+    /* Bitwise operators
+     * Resource: https://en.wikipedia.org/wiki/Three-valued_logic#Kleene_and_Priest_logics
+     */
+
+    /**
+     * Invert the
+     *
+     * @return {@code isKnown() ? (this == TRUE ? FALSE : TRUE) : UNKNOWN}.
+     */
+    public Ternary not() {
+        return isKnown() ? (this == TRUE ? FALSE : TRUE) : UNKNOWN;
+    }
+
+    public Ternary and(final Ternary other) {
+        if (this == FALSE) {
+            return FALSE;
+        }
+        else if (this == TRUE && other == TRUE) {
+            return TRUE;
+        }
+        return UNKNOWN;
+    }
+
+    public Ternary or(final Ternary other) {
+        if (this == TRUE || other == TRUE) {
+            return TRUE;
+        }
+        else if (this == FALSE && other == FALSE) {
+            return FALSE;
+        }
+        return UNKNOWN;
+    }
+    /* END Bitwise operators */
+
     /**
      * Get the corresponding {@code Ternary} state from an integer
      *
