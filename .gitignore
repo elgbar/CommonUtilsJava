@@ -1,0 +1,8 @@
+
+*.lst
+
+target/maven-archiver/
+
+target/surefire-reports/
+
+*.class
