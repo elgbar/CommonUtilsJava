@@ -98,8 +98,8 @@ public class BitFlags {
      * @return A mask where all the individual {@code masks} applied into one mask
      */
     private static int combineMasks(final int... masks) {
-        if (masks.length == 0) {
-            throw new IllegalArgumentException("The masks cannot be null!");
+        if (masks.length < 2) {
+            throw new IllegalArgumentException("The amount of masks must at least be two");
         }
         int allMasks = masks[0];
         for (int i = 1; i < masks.length; i++) {
