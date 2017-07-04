@@ -47,7 +47,7 @@ public enum TernaryLogic {
      */
 
     /**
-     * Invert the
+     * Invert the current state, unknown remains unchanged.
      *
      * @return {@code isKnown() ? (this == TRUE ? FALSE : TRUE) : UNKNOWN}.
      */
@@ -55,6 +55,11 @@ public enum TernaryLogic {
         return isKnown() ? (this == TRUE ? FALSE : TRUE) : UNKNOWN;
     }
 
+    /**
+     * @param other Another {@code TernaryLogic} instance
+     *
+     * @return <a href=https://en.wikipedia.org/wiki/Three-valued_logic#Kleene_and_Priest_logics/>Truth table</a>
+     */
     public TernaryLogic and(final TernaryLogic other) {
         if (this == FALSE || other == FALSE) {
             return FALSE;
@@ -65,6 +70,11 @@ public enum TernaryLogic {
         return UNKNOWN;
     }
 
+    /**
+     * @param other Another {@code TernaryLogic} instance
+     *
+     * @return <a href=https://en.wikipedia.org/wiki/Three-valued_logic#Kleene_and_Priest_logics/>Truth table</a>
+     */
     public TernaryLogic or(final TernaryLogic other) {
         if (this == TRUE || other == TRUE) {
             return TRUE;
@@ -95,7 +105,7 @@ public enum TernaryLogic {
      * @return {@code (i == 1) ? TRUE : ((i == 0) ? FALSE : UNKNOWN)}
      */
     public static TernaryLogic get(final float f) {
-        return (f == 1f) ? TRUE : ((f == 0f) ? FALSE : UNKNOWN);
+        return (f == 1F) ? TRUE : ((f == 0F) ? FALSE : UNKNOWN);
     }
 
     /**
@@ -106,7 +116,7 @@ public enum TernaryLogic {
      * @return {@code (i == 1) ? TRUE : ((i == 0) ? FALSE : UNKNOWN)}
      */
     public static TernaryLogic get(final double d) {
-        return (d == 1d) ? TRUE : ((d == 0d) ? FALSE : UNKNOWN);
+        return (d == 1D) ? TRUE : ((d == 0D) ? FALSE : UNKNOWN);
     }
 
     /**
