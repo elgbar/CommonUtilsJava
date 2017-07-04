@@ -46,7 +46,7 @@ public enum TernaryLogic {
     }
 
     public TernaryLogic and(final TernaryLogic other) {
-        if (this == FALSE) {
+        if (this == FALSE || other == FALSE) {
             return FALSE;
         }
         else if (this == TRUE && other == TRUE) {
