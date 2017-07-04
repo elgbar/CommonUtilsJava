@@ -32,6 +32,16 @@ public enum TernaryLogic {
         return this != UNKNOWN;
     }
 
+    public boolean isTrue() {
+        return this == TRUE;
+    }
+    public boolean isFalse() {
+        return this == FALSE;
+    }
+    public boolean isUnknown() {
+        return this == UNKNOWN;
+    }
+
     /* Bitwise operators
      * Resource: https://en.wikipedia.org/wiki/Three-valued_logic#Kleene_and_Priest_logics
      */
