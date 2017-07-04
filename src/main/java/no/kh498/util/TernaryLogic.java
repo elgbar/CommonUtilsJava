@@ -3,7 +3,7 @@ package no.kh498.util;
 /**
  * A three valued logic type
  *
- * @author karl henrik
+ * @author kh498
  */
 @SuppressWarnings("unused")
 public enum TernaryLogic {

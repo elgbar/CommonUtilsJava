@@ -4,8 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * @author karl henrik
- * @since 0.1.0
+ * @author kh498
  */
 public class TernaryLogicTest {
     @Test
@@ -29,7 +28,7 @@ public class TernaryLogicTest {
         Assert.assertTrue(u.and(t) == u);
         Assert.assertTrue(u.and(u) == u);
     }
-    
+
     @Test
     public void or() throws Exception {
         final TernaryLogic f = TernaryLogic.FALSE;

@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * @author karl henrik
+ * @author kh498
  */
 public class BitFlagsTest {
     private static final int OPTION_0 = 0x0; // 0000

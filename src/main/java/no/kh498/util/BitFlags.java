@@ -6,9 +6,9 @@ package no.kh498.util;
  * Learn more <a href=http://www.learncpp.com/cpp-tutorial/3-8a-bit-flags-and-bit-masks/>here</a>
  * (it's for c++ but the same principles and bitwise operators applies in java)
  *
- * @author karl henrik
+ * @author kh498
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"unused"})
 public class BitFlags {
 
     /**
