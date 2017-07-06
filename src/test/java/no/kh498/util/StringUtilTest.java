@@ -23,5 +23,4 @@ public class StringUtilTest {
         Assert.assertTrue(StringUtil.equalsIgnoreCase('c', 'c'));
         Assert.assertTrue(!StringUtil.equalsIgnoreCase('h', 'i'));
     }
-
 }
