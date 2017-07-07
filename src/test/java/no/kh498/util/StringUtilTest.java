@@ -21,6 +21,9 @@ public class StringUtilTest {
     @Test
     public void equalsIgnoreCase() throws Exception {
         Assert.assertTrue(StringUtil.equalsIgnoreCase('c', 'c'));
-        Assert.assertTrue(!StringUtil.equalsIgnoreCase('h', 'i'));
+        Assert.assertTrue(StringUtil.equalsIgnoreCase('c', 'C'));
+
+        Assert.assertFalse(StringUtil.equalsIgnoreCase('h', 'i'));
+        Assert.assertFalse(StringUtil.equalsIgnoreCase('h', 'I'));
     }
 }

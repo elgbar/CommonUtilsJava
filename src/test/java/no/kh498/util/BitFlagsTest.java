@@ -7,9 +7,9 @@ import org.junit.Test;
  * @author kh498
  */
 public class BitFlagsTest {
-    private static final int OPTION_0 = 0x0; // 0000
-    private static final int OPTION_1 = 0x1; // 0001
-    private static final int OPTION_2 = 0x2; // 0010
+    private static final int OPTION_0 = 0x0; // 000...0000
+    private static final int OPTION_1 = 0x1; // 000...0001
+    private static final int OPTION_2 = 0x2; // 000...0010
 
     @Test
     public void testSingle() throws Exception {
