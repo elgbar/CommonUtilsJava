@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>no.kh498.util</groupId>
+  <artifactId>CommonUtil</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20170710232709</lastUpdated>
+  </versioning>
+</metadata>
