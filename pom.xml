@@ -23,8 +23,6 @@
     </distributionManagement>
 
     <build>
-        <finalName>CommandAPI</finalName>
-        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <resources>
             <resource>
                 <targetPath>.</targetPath>

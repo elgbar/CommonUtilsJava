@@ -66,7 +66,7 @@ public class BitFlags {
      * @param flags The flags to change
      * @param masks The masks to disable
      *
-     * @return mmodified {@code flags} with the bits indicated by {@code masks} disabled
+     * @return modified {@code flags} with the bits indicated by {@code masks} disabled
      */
     public static int reset(final int flags, final int... masks) {
         return flags & ~combineMasks(masks);
