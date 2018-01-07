@@ -1,15 +1,6 @@
 # CommonUtilsJava
 
-```
-<repository>
-    <id>CommonUtilsJava</id>
-    <url>https://raw.github.com/kh498/CommonUtilsJava/mvn-repo/</url>
-    <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-    </snapshots>
-</repository>
-```
+Add [my repo](https://github.com/kh498/maven2)
 
 ```
 <dependency>
