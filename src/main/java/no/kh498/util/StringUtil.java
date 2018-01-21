@@ -86,7 +86,7 @@ public class StringUtil {
      * @return {@code true} if the argument represents an equivalent {@code String} ignoring case; {@code false}
      * otherwise
      */
-    static boolean equalsIgnoreCase(final char c1, final char c2) {
+    public static boolean equalsIgnoreCase(final char c1, final char c2) {
         return Character.toUpperCase(c1) == Character.toUpperCase(c2);
     }
 
