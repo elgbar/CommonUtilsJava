@@ -58,11 +58,11 @@ public class StringUtil {
         if (s == null) {
             throw new IllegalArgumentException("The argument cannot be null!");
         }
-        char lastChar = s.toCharArray()[s.length() - 1];
+        final char lastChar = s.toCharArray()[s.length() - 1];
         return s + '\'' + (equalsIgnoreCase('s', lastChar) ? "" : 's');
     }
 
-    private static Pattern VOWEL = Pattern.compile(" [aeiouyAEIOUY]");
+    private static final Pattern VOWEL = Pattern.compile(" [aeiouyAEIOUY]");
 
     /**
      * @param followingWord
@@ -70,8 +70,8 @@ public class StringUtil {
      *
      * @return A String with either 'a' or 'an' before it depending on the first character of {@code followingWord}
      */
-    public static String AAn(String followingWord) {
-        boolean startVowel = VOWEL.matcher(followingWord).find();
+    public static String AAn(final String followingWord) {
+        final boolean startVowel = VOWEL.matcher(followingWord).find();
         return "a" + (startVowel ? 'n' : "") + " " + followingWord;
     }
 
@@ -100,7 +100,7 @@ public class StringUtil {
      *
      * @return {@code sb}
      */
-    public static StringBuilder removeTail(StringBuilder sb, int amount) {
+    public static StringBuilder removeTail(final StringBuilder sb, final int amount) {
         if (sb.length() >= amount) {
             sb.setLength(sb.length() - amount);
         }
@@ -115,7 +115,7 @@ public class StringUtil {
      *
      * @return {@code sb}
      */
-    public static StringBuilder removeTail(StringBuilder sb) {
+    public static StringBuilder removeTail(final StringBuilder sb) {
         return removeTail(sb, 1);
     }
 }
