@@ -8,3 +8,7 @@ target/surefire-reports/
 *.class
 
 target/
+
+\.idea/
+
+CommonUtil\.iml
