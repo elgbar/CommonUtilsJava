@@ -1,6 +1,7 @@
 package no.kh498.util;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  * @author karl henrik
@@ -19,15 +20,16 @@ public class Reflection {
      *
      * @return The object with the name {@code field} from the object {@code object}
      *
-     * @throws NoSuchFieldException For same reason as {@link Field#get(Object)}
-     * @throws IllegalAccessException For same reason as {@link Field#get(Object)}
+     * @throws NoSuchFieldException
+     *     For same reason as {@link Field#get(Object)}
+     * @throws IllegalAccessException
+     *     For same reason as {@link Field#get(Object)}
      */
-    public static Object getSuperField(final Object object, final String field)
-    throws NoSuchFieldException, IllegalAccessException {
-        final Class<?> c = object.getClass().getSuperclass();
-        final Field objectField = c.getDeclaredField(field);
+    public static Object getSuperField(Object object, String field) throws NoSuchFieldException, IllegalAccessException {
+        Class<?> c = object.getClass().getSuperclass();
+        Field objectField = c.getDeclaredField(field);
         objectField.setAccessible(true);
-        final Object result = objectField.get(object);
+        Object result = objectField.get(object);
         objectField.setAccessible(false);
         return result;
     }
@@ -36,19 +38,41 @@ public class Reflection {
      * @param object
      *     The object to get the field from
      * @param field
-     *     The field to get the object of
+     *     The name of the field to get
      *
      * @return The object with the name {@code field} from the object {@code object}
      *
-     * @throws NoSuchFieldException For same reason as {@link Field#get(Object)}
-     * @throws IllegalAccessException For same reason as {@link Field#get(Object)}
+     * @throws NoSuchFieldException
+     *     For same reason as {@link Field#get(Object)}
+     * @throws IllegalAccessException
+     *     For same reason as {@link Field#get(Object)}
      */
-    public static Object getField(final Object object, final String field)
-    throws NoSuchFieldException, IllegalAccessException {
-        final Class<?> c = object.getClass();
-        final Field objectField = c.getDeclaredField(field);
+    public static Object getField(Object object, String field) throws NoSuchFieldException, IllegalAccessException {
+        Class<?> c = object.getClass();
+        Field objectField = c.getDeclaredField(field);
         objectField.setAccessible(true);
-        final Object result = objectField.get(object);
+        Object result = objectField.get(object);
+        objectField.setAccessible(false);
+        return result;
+    }
+
+    /**
+     * @param clazz
+     *     The class to get the static field from
+     * @param field
+     *     The name of the field to get
+     *
+     * @return The object with the name {@code field} from the object {@code object}
+     *
+     * @throws NoSuchFieldException
+     *     For same reason as {@link Field#get(Object)}
+     * @throws IllegalAccessException
+     *     For same reason as {@link Field#get(Object)}
+     */
+    public static Object getStaticField(Class<?> clazz, String field) throws NoSuchFieldException, IllegalAccessException {
+        Field objectField = clazz.getDeclaredField(field);
+        objectField.setAccessible(true);
+        Object result = objectField.get(null);
         objectField.setAccessible(false);
         return result;
     }
@@ -63,13 +87,15 @@ public class Reflection {
      * @param newValue
      *     The new value of the field {@code field} in the object {@code object}
      *
-     * @throws NoSuchFieldException For same reason as {@link Field#get(Object)}
-     * @throws IllegalAccessException For same reason as {@link Field#get(Object)}
+     * @throws NoSuchFieldException
+     *     For same reason as {@link Field#get(Object)}
+     * @throws IllegalAccessException
+     *     For same reason as {@link Field#get(Object)}
      */
-    public static void modifyField(final Object object, final String field, Object newValue)
+    public static void modifyField(Object object, String field, Object newValue)
     throws NoSuchFieldException, IllegalAccessException {
-        final Class<?> c = object.getClass();
-        final Field objectField = c.getDeclaredField(field);
+        Class<?> c = object.getClass();
+        Field objectField = c.getDeclaredField(field);
         objectField.setAccessible(true);
         objectField.set(object, newValue);
         objectField.setAccessible(false);
@@ -85,15 +111,26 @@ public class Reflection {
      * @param newValue
      *     The new value of the field {@code field} in the object {@code object}
      *
-     * @throws NoSuchFieldException For same reason as {@link Field#get(Object)}
-     * @throws IllegalAccessException For same reason as {@link Field#get(Object)}
+     * @throws NoSuchFieldException
+     *     For same reason as {@link Field#get(Object)}
+     * @throws IllegalAccessException
+     *     For same reason as {@link Field#get(Object)}
      */
-    public static void modifySuperField(final Object object, final String field, Object newValue)
+    public static void modifySuperField(Object object, String field, Object newValue)
     throws NoSuchFieldException, IllegalAccessException {
-        final Class<?> c = object.getClass().getSuperclass();
-        final Field objectField = c.getDeclaredField(field);
+        Class<?> c = object.getClass().getSuperclass();
+        Field objectField = c.getDeclaredField(field);
         objectField.setAccessible(true);
         objectField.set(object, newValue);
         objectField.setAccessible(false);
+    }
+
+
+    public static Method getMethod(Class<?> clazz, String name, Class<?>... args) {
+        try {
+            return clazz.getDeclaredMethod(name, args);
+        } catch (NoSuchMethodException e) {
+            return null;
+        }
     }
 }
