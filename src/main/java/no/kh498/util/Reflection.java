@@ -25,7 +25,8 @@ public class Reflection {
      * @throws IllegalAccessException
      *     For same reason as {@link Field#get(Object)}
      */
-    public static Object getSuperField(Object object, String field) throws NoSuchFieldException, IllegalAccessException {
+    public static Object getSuperField(Object object, String field)
+    throws NoSuchFieldException, IllegalAccessException {
         Class<?> c = object.getClass().getSuperclass();
         Field objectField = c.getDeclaredField(field);
         objectField.setAccessible(true);
@@ -69,7 +70,8 @@ public class Reflection {
      * @throws IllegalAccessException
      *     For same reason as {@link Field#get(Object)}
      */
-    public static Object getStaticField(Class<?> clazz, String field) throws NoSuchFieldException, IllegalAccessException {
+    public static Object getStaticField(Class<?> clazz, String field)
+    throws NoSuchFieldException, IllegalAccessException {
         Field objectField = clazz.getDeclaredField(field);
         objectField.setAccessible(true);
         Object result = objectField.get(null);
@@ -99,6 +101,28 @@ public class Reflection {
         objectField.setAccessible(true);
         objectField.set(object, newValue);
         objectField.setAccessible(false);
+    }
+
+    /**
+     * Modify an inaccessible static field
+     *
+     * @param object
+     *     The object to get the field from
+     * @param field
+     *     The field to get the object of
+     * @param newValue
+     *     The new value of the field {@code field} in the object {@code object}
+     *
+     * @throws NoSuchFieldException
+     *     For same reason as {@link Class#getDeclaredField(String)}
+     * @throws IllegalAccessException
+     *     For same reason as {@link Field#set(Object, Object)}
+     */
+    public static void modifyStaticField(Class<?> clazz, String field, Object newValue)
+    throws NoSuchFieldException, IllegalAccessException {
+        Field objectField = clazz.getDeclaredField(field);
+        objectField.setAccessible(true);
+        objectField.set(null, newValue);
     }
 
     /**
